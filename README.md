@@ -1,16 +1,54 @@
-# React + Vite
+# CaravanShare (카라반쉐어)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+카라반쉐어는 카라반(캠핑카)을 위한 P2P 공유 플랫폼 MVP입니다. 에어비앤비와 유사한 경험을 제공하며, 호스트는 카라반을 등록하고 게스트는 이를 예약할 수 있습니다.
 
-Currently, two official plugins are available:
+## 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. 사용자 시스템
+- **회원가입/로그인**: 호스트 및 게스트 역할 구분
+- **프로필 관리**: 신뢰도 점수 및 본인 인증 배지 시스템
 
-## React Compiler
+### 2. 카라반 관리 (호스트)
+- **숙소 등록**: 사진, 위치, 가격, 편의시설 등 상세 정보 등록
+- **예약 관리**: 들어온 예약 요청 승인/거절
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 3. 예약 시스템 (게스트)
+- **검색 및 필터**: 위치, 가격, 인원수 기반 검색
+- **상세 정보**: 카라반 이미지 갤러리 및 상세 정보 확인
+- **예약 요청**: 날짜 선택 및 예약 진행
 
-## Expanding the ESLint configuration
+### 4. 결제 시스템 (시뮬레이션)
+- **안전 결제**: 예약 시 카드 결제 모달 제공
+- **가상 결제**: 테스트용 카드 번호로 결제 프로세스 체험 가능
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 5. 본인 인증 시스템
+- **신분증 업로드**: 대시보드에서 신분증 사진 업로드 (시뮬레이션)
+- **인증 배지**: 인증 완료 시 프로필에 'Verified' 배지 표시
+
+## 기술 스택
+- **Frontend**: React, Vite
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Routing**: React Router DOM
+- **State Management**: React Context API
+- **Mock Backend**: LocalStorage를 활용한 데이터 영구 저장 시뮬레이션
+
+## 실행 방법
+
+1. **의존성 설치**
+   ```bash
+   npm install
+   ```
+
+2. **개발 서버 실행**
+   ```bash
+   npm run dev
+   ```
+
+3. **브라우저 접속**
+   `http://localhost:5173` 으로 접속하세요.
+
+## 데모 계정
+
+- **게스트 (Guest)**: `guest@test.com` / `password`
+- **호스트 (Host)**: `host@test.com` / `password`
