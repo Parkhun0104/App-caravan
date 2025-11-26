@@ -7,12 +7,12 @@ const CaravanCard = ({ caravan }) => {
         <Link to={`/caravan/${caravan.id}`} className="group block bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border border-gray-100">
             <div className="relative aspect-[4/3] overflow-hidden">
                 <img
-                    src={caravan.images[0]}
+                    src={caravan.images?.[0] || 'https://via.placeholder.com/400x300?text=No+Image'}
                     alt={caravan.title}
                     className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md text-xs font-semibold text-gray-900 shadow-sm">
-                    ${caravan.pricePerDay}/night
+                    ₩{(caravan.pricePerDay || 0).toLocaleString()}/night
                 </div>
             </div>
             <div className="p-4">

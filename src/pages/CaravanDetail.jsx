@@ -90,10 +90,10 @@ const CaravanDetail = () => {
         }
     };
 
-    if (loading) return <div className="p-8 text-center">Loading...</div>;
-    if (!caravan) return <div className="p-8 text-center">Caravan not found</div>;
-
-    const days = bookingDates.startDate && bookingDates.endDate
+    if (loading) return <div className="p-8 text-center">로딩 중...</div>;
+    if (!caravan) {
+        return <div className="text-center py-20">캠핑카를 찾을 수 없습니다</div>;
+    } const days = bookingDates.startDate && bookingDates.endDate
         ? Math.ceil((new Date(bookingDates.endDate) - new Date(bookingDates.startDate)) / (1000 * 60 * 60 * 24))
         : 0;
 
@@ -120,9 +120,9 @@ const CaravanDetail = () => {
                     {/* Fallback if only 1 image, duplicate for layout or show placeholder */}
                     {caravan.images.length === 1 && (
                         <>
-                            <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-400">More photos coming soon</div>
-                            <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-400">More photos coming soon</div>
-                            <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-400">More photos coming soon</div>
+                            <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-400">더 많은 사진이 곧 추가됩니다</div>
+                            <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-400">더 많은 사진이 곧 추가됩니다</div>
+                            <div className="bg-gray-200 w-full h-full flex items-center justify-center text-gray-400">더 많은 사진이 곧 추가됩니다</div>
                         </>
                     )}
                 </div>
@@ -137,7 +137,7 @@ const CaravanDetail = () => {
                             <div className="flex items-center space-x-1 text-sm font-medium">
                                 <Star className="w-5 h-5 text-yellow-400 fill-current" />
                                 <span>{caravan.rating}</span>
-                                <span className="text-gray-500">({caravan.reviewCount} reviews)</span>
+                                <span className="text-gray-500">({caravan.reviewCount} 리뷰)</span>
                             </div>
                         </div>
                         <div className="flex items-center text-gray-500 mb-4">
@@ -147,24 +147,50 @@ const CaravanDetail = () => {
                         <div className="flex items-center text-gray-500 space-x-4 py-4 border-t border-b border-gray-100">
                             <div className="flex items-center">
                                 <Users className="w-5 h-5 mr-2" />
-                                {caravan.capacity} Guests
+                                {caravan.capacity} 명
                             </div>
                             <div className="flex items-center">
                                 <User className="w-5 h-5 mr-2" />
-                                Hosted by {caravan.hostId === 'user_1' ? 'John Host' : 'Host'}
+                                호스트: {caravan.hostId === 'user_1' ? 'John Host' : 'Host'}
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h2 className="text-xl font-semibold mb-4">About this caravan</h2>
-                        <p className="text-gray-600 leading-relaxed">
+                        <h2 className="text-xl font-semibold mb-4">이 캠핑카 소개</h2>
+                        <p className="text-gray-600 leading-relaxed mb-6">
                             {caravan.description}
                         </p>
+
+                        {caravan.specs && (
+                            <div className="bg-gray-50 rounded-xl p-6 mb-8">
+                                <h3 className="font-semibold text-gray-900 mb-4">차량 제원 및 옵션</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="flex justify-between py-2 border-b border-gray-200">
+                                        <span className="text-gray-500">길이</span>
+                                        <span className="font-medium text-gray-900">{caravan.specs.length}</span>
+                                    </div>
+                                    <div className="flex justify-between py-2 border-b border-gray-200">
+                                        <span className="text-gray-500">차량 타입</span>
+                                        <span className="font-medium text-gray-900">{caravan.specs.type}</span>
+                                    </div>
+                                </div>
+                                <div className="mt-4">
+                                    <h4 className="text-sm font-medium text-gray-500 mb-2">주요 특징</h4>
+                                    <div className="flex flex-wrap gap-2">
+                                        {caravan.specs.features.map((feature, idx) => (
+                                            <span key={idx} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-sm text-gray-700">
+                                                {feature}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     <div>
-                        <h2 className="text-xl font-semibold mb-4">Amenities</h2>
+                        <h2 className="text-xl font-semibold mb-4">편의 시설</h2>
                         <div className="grid grid-cols-2 gap-4">
                             {caravan.amenities?.map((amenity, index) => (
                                 <div key={index} className="flex items-center text-gray-600">
@@ -181,15 +207,15 @@ const CaravanDetail = () => {
                     <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 sticky top-24">
                         <div className="flex justify-between items-end mb-6">
                             <div>
-                                <span className="text-2xl font-bold text-gray-900">${caravan.pricePerDay}</span>
-                                <span className="text-gray-500"> / night</span>
+                                <span className="text-2xl font-bold text-gray-900">₩{caravan.pricePerDay.toLocaleString()}</span>
+                                <span className="text-gray-500"> / 박</span>
                             </div>
                         </div>
 
                         <form onSubmit={handleBooking} className="space-y-4">
                             <div className="grid grid-cols-2 gap-2">
                                 <div>
-                                    <label className="block text-xs font-medium text-gray-700 mb-1">CHECK-IN</label>
+                                    <label className="block text-xs font-medium text-gray-700 mb-1">체크인</label>
                                     <input
                                         type="date"
                                         required
@@ -200,7 +226,7 @@ const CaravanDetail = () => {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-medium text-gray-700 mb-1">CHECKOUT</label>
+                                    <label className="block text-xs font-medium text-gray-700 mb-1">체크아웃</label>
                                     <input
                                         type="date"
                                         required
@@ -215,16 +241,16 @@ const CaravanDetail = () => {
                             {days > 0 && (
                                 <div className="py-4 space-y-2 border-t border-gray-100">
                                     <div className="flex justify-between text-gray-600">
-                                        <span>${caravan.pricePerDay} x {days} nights</span>
-                                        <span>${totalPrice}</span>
+                                        <span>₩{caravan.pricePerDay.toLocaleString()} x {days} 박</span>
+                                        <span>₩{totalPrice.toLocaleString()}</span>
                                     </div>
                                     <div className="flex justify-between text-gray-600">
-                                        <span>Service fee</span>
-                                        <span>$0</span>
+                                        <span>서비스 수수료</span>
+                                        <span>₩0</span>
                                     </div>
                                     <div className="flex justify-between font-bold text-gray-900 pt-2 border-t border-gray-100">
-                                        <span>Total</span>
-                                        <span>${totalPrice}</span>
+                                        <span>총액</span>
+                                        <span>₩{totalPrice.toLocaleString()}</span>
                                     </div>
                                 </div>
                             )}
@@ -236,11 +262,11 @@ const CaravanDetail = () => {
                             )}
 
                             <Button type="submit" className="w-full" size="lg" isLoading={bookingLoading} disabled={days <= 0}>
-                                {user ? 'Reserve' : 'Log in to Reserve'}
+                                {user ? '예약하기' : '로그인 후 예약'}
                             </Button>
 
                             <p className="text-xs text-center text-gray-500 mt-2">
-                                You won't be charged yet
+                                아직 결제되지 않습니다
                             </p>
                         </form>
                     </div>

@@ -4,11 +4,11 @@
  */
 
 const DB_KEYS = {
-    USERS: 'caravan_users',
-    CARAVANS: 'caravan_items',
-    BOOKINGS: 'caravan_bookings',
-    REVIEWS: 'caravan_reviews',
-    PAYMENTS: 'caravan_payments',
+    USERS: 'caravan_users_v5',
+    CARAVANS: 'caravan_items_v5',
+    BOOKINGS: 'caravan_bookings_v5',
+    REVIEWS: 'caravan_reviews_v5',
+    PAYMENTS: 'caravan_payments_v5',
 };
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -53,36 +53,117 @@ export const seedDatabase = () => {
             {
                 id: 'caravan_1',
                 hostId: 'user_1',
-                title: 'Vintage Airstream in the Woods',
-                description: 'Experience nature in this beautifully restored 1970s Airstream. Located in a private forest clearing.',
-                location: 'Portland, OR',
-                pricePerDay: 120,
+                title: '에어스트림 플라잉 클라우드 23FB',
+                description: '숲속에서 즐기는 빈티지 감성 캠핑. 1970년대 에어스트림을 완벽하게 복원했습니다.',
+                location: '강원 강릉시',
+                pricePerDay: 120000,
                 capacity: 2,
                 status: 'available',
                 images: [
+                    'https://images.unsplash.com/photo-1627664819818-e147d6221422?auto=format&fit=crop&q=80&w=800',
                     'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&q=80&w=800',
-                    'https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&q=80&w=800'
+                    'https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&q=80&w=800'
                 ],
                 amenities: ['WiFi', 'Kitchen', 'Heating', 'Fire Pit'],
+                specs: {
+                    length: '23ft',
+                    type: 'Travel Trailer',
+                    features: ['Queen Bed', 'Full Bath', 'Solar Panels']
+                },
                 rating: 4.9,
                 reviewCount: 12
             },
             {
                 id: 'caravan_2',
                 hostId: 'user_1',
-                title: 'Modern Camper Van with Ocean View',
-                description: 'Wake up to the sound of waves in this fully equipped modern camper van.',
-                location: 'Malibu, CA',
-                pricePerDay: 200,
+                title: '현대 스타리아 라운지 캠퍼',
+                description: '오션뷰와 함께하는 모던한 캠핑. 최신형 스타리아 캠퍼로 편안한 여행을 즐기세요.',
+                location: '제주 제주시',
+                pricePerDay: 200000,
                 capacity: 4,
                 status: 'available',
                 images: [
                     'https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&q=80&w=800',
-                    'https://images.unsplash.com/photo-1516939884455-1445c8652f83?auto=format&fit=crop&q=80&w=800'
+                    'https://images.unsplash.com/photo-1517816428103-7dc26ec58372?auto=format&fit=crop&q=80&w=800',
+                    'https://images.unsplash.com/photo-1533630763629-679c94162c8d?auto=format&fit=crop&q=80&w=800'
                 ],
                 amenities: ['Ocean View', 'Solar Power', 'Shower', 'BBQ'],
+                specs: {
+                    length: '5.2m',
+                    type: 'Camper Van',
+                    features: ['Pop-up Roof', 'Slide-out Table', 'Awning']
+                },
                 rating: 4.7,
                 reviewCount: 8
+            },
+            {
+                id: 'caravan_3',
+                hostId: 'user_1',
+                title: '위네바고 미니 위니 31K',
+                description: '온 가족이 함께 즐길 수 있는 넓고 편안한 럭셔리 모터홈입니다. 모든 편의시설이 완비되어 있습니다.',
+                location: '경기 가평군',
+                pricePerDay: 350000,
+                capacity: 6,
+                status: 'available',
+                images: [
+                    'https://images.unsplash.com/photo-1534349762230-e0cadf78f5da?auto=format&fit=crop&q=80&w=800',
+                    'https://images.unsplash.com/photo-1566847438217-76e82d383f84?auto=format&fit=crop&q=80&w=800',
+                    'https://images.unsplash.com/photo-1519003300449-424ad0405076?auto=format&fit=crop&q=80&w=800'
+                ],
+                amenities: ['TV', 'Air Conditioning', 'Full Kitchen', 'Shower', 'Toilet'],
+                specs: {
+                    length: '32ft',
+                    type: 'Class C Motorhome',
+                    features: ['Slide-out', 'Generator', 'Rear Bedroom']
+                },
+                rating: 4.9,
+                reviewCount: 24
+            },
+            {
+                id: 'caravan_4',
+                hostId: 'user_1',
+                title: '폭스바겐 T6 캘리포니아',
+                description: '커플 여행에 딱 맞는 아늑하고 감성적인 미니 캠퍼밴입니다. 어디든 자유롭게 떠나보세요.',
+                location: '부산 해운대구',
+                pricePerDay: 150000,
+                capacity: 2,
+                status: 'available',
+                images: [
+                    'https://images.unsplash.com/photo-1517816428103-7dc26ec58372?auto=format&fit=crop&q=80&w=800',
+                    'https://images.unsplash.com/photo-1526495124232-a04e1849168c?auto=format&fit=crop&q=80&w=800',
+                    'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=800'
+                ],
+                amenities: ['Bluetooth Speaker', 'Camping Chairs', 'Mini Fridge', 'Stove'],
+                specs: {
+                    length: '4.9m',
+                    type: 'Camper Van',
+                    features: ['Pop-top Roof', 'Swivel Seats', 'Kitchenette']
+                },
+                rating: 4.8,
+                reviewCount: 15
+            },
+            {
+                id: 'caravan_5',
+                hostId: 'user_1',
+                title: '포레스트 리버 와일드우드',
+                description: '편안한 휴식을 위한 고정형 카라반입니다. 넓은 데크와 바베큐 시설이 준비되어 있습니다.',
+                location: '강원 춘천시',
+                pricePerDay: 180000,
+                capacity: 4,
+                status: 'available',
+                images: [
+                    'https://images.unsplash.com/photo-1627664819818-e147d6221422?auto=format&fit=crop&q=80&w=800',
+                    'https://images.unsplash.com/photo-1496080174650-637e3f22fa03?auto=format&fit=crop&q=80&w=800',
+                    'https://images.unsplash.com/photo-1470246973918-29a53295c452?auto=format&fit=crop&q=80&w=800'
+                ],
+                amenities: ['Deck', 'BBQ Grill', 'Heating', 'WiFi'],
+                specs: {
+                    length: '26ft',
+                    type: 'Travel Trailer',
+                    features: ['Bunk Beds', 'Outdoor Kitchen', 'Large Awning']
+                },
+                rating: 4.6,
+                reviewCount: 32
             }
         ];
         setTable(DB_KEYS.CARAVANS, initialCaravans);

@@ -10,14 +10,19 @@ export const caravanService = {
     },
 
     search: async (filters) => {
+        console.log('Searching with filters:', filters);
         const all = await db.caravans.findAll();
-        return all.filter(c => {
+        const results = all.filter(c => {
             if (filters.location && !c.location.toLowerCase().includes(filters.location.toLowerCase())) return false;
-            if (filters.minPrice && c.pricePerDay < filters.minPrice) return false;
-            if (filters.maxPrice && c.pricePerDay > filters.maxPrice) return false;
-            if (filters.capacity && c.capacity < filters.capacity) return false;
+            if (filters.subLocation && !c.location.toLowerCase().includes(filters.subLocation.toLowerCase())) return false;
+            // Handle minPrice 0 correctly (0 is falsy but valid)
+            if (filters.minPrice !== '' && filters.minPrice !== null && c.pricePerDay < Number(filters.minPrice)) return false;
+            if (filters.maxPrice !== '' && filters.maxPrice !== null && c.pricePerDay > Number(filters.maxPrice)) return false;
+            if (filters.capacity && c.capacity < Number(filters.capacity)) return false;
             return true;
         });
+        console.log('Search results:', results.length);
+        return results;
     },
 
     create: async (caravanData) => {

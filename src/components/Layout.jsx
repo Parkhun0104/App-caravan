@@ -3,6 +3,7 @@ import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { LogOut, User, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import Logo from './ui/Logo';
 
 const Layout = () => {
     const { user, logout } = useAuth();
@@ -21,20 +22,20 @@ const Layout = () => {
                     <div className="flex justify-between h-16">
                         <div className="flex">
                             <Link to="/" className="flex-shrink-0 flex items-center">
-                                <span className="text-2xl font-bold text-primary-600">CaravanShare</span>
+                                <Logo />
                             </Link>
                         </div>
                         <div className="hidden sm:ml-6 sm:flex sm:items-center sm:space-x-8">
                             <Link to="/" className="text-gray-900 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
-                                Explore
+                                둘러보기
                             </Link>
                             {user ? (
                                 <>
                                     <Link to="/dashboard" className="text-gray-900 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
-                                        Dashboard
+                                        대시보드
                                     </Link>
                                     <div className="relative ml-3 flex items-center gap-4">
-                                        <span className="text-sm text-gray-700">Hi, {user.name}</span>
+                                        <span className="text-sm text-gray-700">안녕하세요, {user.name}님</span>
                                         <button
                                             onClick={handleLogout}
                                             className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none"
@@ -46,10 +47,10 @@ const Layout = () => {
                             ) : (
                                 <>
                                     <Link to="/login" className="text-gray-900 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium">
-                                        Log in
+                                        로그인
                                     </Link>
                                     <Link to="/register" className="bg-primary-600 text-white hover:bg-primary-700 px-4 py-2 rounded-md text-sm font-medium">
-                                        Sign up
+                                        회원가입
                                     </Link>
                                 </>
                             )}
@@ -70,27 +71,27 @@ const Layout = () => {
                     <div className="sm:hidden">
                         <div className="pt-2 pb-3 space-y-1">
                             <Link to="/" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-                                Explore
+                                둘러보기
                             </Link>
                             {user ? (
                                 <>
                                     <Link to="/dashboard" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-                                        Dashboard
+                                        대시보드
                                     </Link>
                                     <button
                                         onClick={handleLogout}
                                         className="block w-full text-left pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800"
                                     >
-                                        Log out
+                                        로그아웃
                                     </button>
                                 </>
                             ) : (
                                 <>
                                     <Link to="/login" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-                                        Log in
+                                        로그인
                                     </Link>
                                     <Link to="/register" className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800">
-                                        Sign up
+                                        회원가입
                                     </Link>
                                 </>
                             )}
