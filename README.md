@@ -26,13 +26,19 @@ CaravanShare는 누구나 쉽게 캠핑카를 빌리고 빌려줄 수 있는 P2P
 - **결제 시뮬레이션**: 안전한 카드 결제 프로세스 체험 (테스트 모드)
 - **본인 인증**: 신분증 업로드 및 인증 배지 시스템
 
-## 🛠 기술 스택
-- **Frontend**: React, Vite
-- **Styling**: Tailwind CSS (Custom Blue Theme)
-- **Icons**: Lucide React
-- **Routing**: React Router DOM
-- **State Management**: React Context API
-- **Mock Backend**: LocalStorage를 활용한 데이터 영구 저장
+## 🛠 기술 스택 및 환경 (Tech Stack & Environment)
+
+| 구분 (Category) | 기술 (Technology) | 설명 (Description) |
+| :--- | :--- | :--- |
+| **Environment** | Node.js v18+, npm | Runtime & Package Manager |
+| **Framework** | React v19, Vite v7 | Core Framework & Build Tool |
+| **Language** | JavaScript (ES Modules) | Main Language |
+| **Routing** | React Router DOM v7 | Client-side Routing |
+| **Styling** | Tailwind CSS v3.4 | Utility-first CSS Framework |
+| **UI Components** | Lucide React | Icon Library |
+| **Utils** | clsx, tailwind-merge, date-fns | Helper Libraries |
+| **State Mgmt** | React Context API | Global State Management |
+| **Backend** | LocalStorage | Mock Database & Persistence |
 
 ## 📂 프로젝트 구조 (Project Structure)
 
