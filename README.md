@@ -30,15 +30,15 @@ CaravanShare는 누구나 쉽게 캠핑카를 빌리고 빌려줄 수 있는 P2P
 
 | 구분 (Category) | 기술 (Technology) | 설명 (Description) |
 | :--- | :--- | :--- |
-| **Environment** | Node.js v18+, npm | Runtime & Package Manager |
-| **Framework** | React v19, Vite v7 | Core Framework & Build Tool |
-| **Language** | JavaScript (ES Modules) | Main Language |
-| **Routing** | React Router DOM v7 | Client-side Routing |
-| **Styling** | Tailwind CSS v3.4 | Utility-first CSS Framework |
-| **UI Components** | Lucide React | Icon Library |
-| **Utils** | clsx, tailwind-merge, date-fns | Helper Libraries |
-| **State Mgmt** | React Context API | Global State Management |
-| **Backend** | LocalStorage | Mock Database & Persistence |
+| **환경** | Node.js v18+, npm | Runtime & Package Manager |
+| **프레임워크** | React v19, Vite v7 | Core Framework & Build Tool |
+| **언어** | JavaScript (ES Modules) | Main Language |
+| **라우팅** | React Router DOM v7 | Client-side Routing |
+| **스타일링** | Tailwind CSS v3.4 | Utility-first CSS Framework |
+| **UI 컴포넌트** | Lucide React | Icon Library |
+| **유틸리티** | clsx, tailwind-merge, date-fns | Helper Libraries |
+| **상태 관리** | React Context API | Global State Management |
+| **백엔드** | LocalStorage | Mock Database & Persistence |
 
 ## 📂 프로젝트 구조 (Project Structure)
 
