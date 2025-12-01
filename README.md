@@ -34,20 +34,55 @@ CaravanShare는 누구나 쉽게 캠핑카를 빌리고 빌려줄 수 있는 P2P
 - **State Management**: React Context API
 - **Mock Backend**: LocalStorage를 활용한 데이터 영구 저장
 
-## ▶️ 실행 방법
+## 📂 프로젝트 구조 (Project Structure)
 
-1. **의존성 설치**
-   ```bash
-   npm install
-   ```
+이 프로젝트는 React와 Vite를 사용하여 구축되었습니다. 주요 디렉토리 구조는 다음과 같습니다:
 
-2. **개발 서버 실행**
-   ```bash
-   npm run dev
-   ```
+-   `src/`: 소스 코드가 위치하는 메인 디렉토리입니다.
+    -   `components/`: 재사용 가능한 UI 컴포넌트들이 위치합니다. (예: `CaravanCard`, `PaymentModal`)
+    -   `pages/`: 각 라우트에 해당하는 페이지 컴포넌트들이 위치합니다. (예: `CaravanDetail`, `Dashboard`)
+    -   `services/`: 외부 API 호출이나 비즈니스 로직을 처리하는 서비스 파일들이 위치합니다. (예: `authService`)
+    -   `hooks/`: 커스텀 React 훅들이 위치합니다.
+    -   `utils/`: 유틸리티 함수들이 위치합니다.
+-   `public/`: 정적 파일(이미지, 아이콘 등)이 위치합니다.
+-   `index.html`: 앱의 진입점 HTML 파일입니다.
+-   `package.json`: 프로젝트 의존성 및 스크립트가 정의되어 있습니다.
+-   `vite.config.js`: Vite 설정 파일입니다.
+-   `tailwind.config.js`: Tailwind CSS 설정 파일입니다.
 
-3. **브라우저 접속**
-   `http://localhost:5173` 으로 접속하세요.
+## ▶️ 실행 방법 (Setup & Run)
+
+이 프로젝트를 로컬 환경에서 실행하려면 다음 단계들을 따르세요.
+
+### 1. 필수 요구사항 (Prerequisites)
+- Node.js (버전 18 이상 권장)
+- npm (Node.js 설치 시 포함됨)
+
+### 2. 설치 (Installation)
+프로젝트 루트 디렉토리에서 다음 명령어를 실행하여 의존성을 설치합니다:
+```bash
+npm install
+```
+
+### 3. 개발 서버 실행 (Development Server)
+다음 명령어를 실행하여 개발 서버를 시작합니다:
+```bash
+npm run dev
+```
+서버가 실행되면 터미널에 표시된 로컬 주소(보통 `http://localhost:5173`)로 브라우저에서 접속하여 앱을 확인할 수 있습니다.
+
+### 4. 빌드 (Build)
+배포를 위한 프로덕션 빌드를 생성하려면 다음 명령어를 실행합니다:
+```bash
+npm run build
+```
+빌드된 파일은 `dist/` 디렉토리에 생성됩니다.
+
+### 5. 린트 (Lint)
+코드 스타일 및 잠재적인 오류를 확인하려면 다음 명령어를 실행합니다:
+```bash
+npm run lint
+```
 
 ## 🔑 데모 계정
 
